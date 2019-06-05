@@ -23,6 +23,7 @@ echo "Project compiled"
     }
 }
 
+/*
 stage('SonarQube Analysis'){
 
 steps{
@@ -34,6 +35,7 @@ echo "Check results in SonarQube"
 input("Do you want to proceed ?")
     }
 }
+*/
 
 stage('Test'){
 
