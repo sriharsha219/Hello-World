@@ -65,8 +65,8 @@ echo "Project installed"
 
  stage("Publish to Nexus") {
              steps {
-				mvn deploy
-            }
+			  sh "mvn deploy"
+			  }
         }
  
 stage ("Deploy-Staging") {		
