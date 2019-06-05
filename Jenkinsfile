@@ -71,15 +71,15 @@ echo "Project installed"
                         nexusArtifactUploader(
                         nexusVersion: 'nexus3',
     protocol: 'http',
-    nexusUrl: '3.130.67.158:8081/nexus/content/repositories/my-nexus-snapshots',
+    nexusUrl: '3.130.67.158:8081/nexus/content/repositories',
     groupId: pom.groupId,
     version: pom.version,
     repository: 'my-nexus-snapshots',
     credentialsId: 'Nexus',
     artifacts: [
-        [artifactId: 'Hello-World',
+        [artifactId: pom.artifactId,
          classifier: '',
-         file: '/home/ec2-user/.m2/repository/personal/Hello-World/1.0-SNAPSHOT/Hello-World-1.0-SNAPSHOT.war',
+         file: 'Hello-World-1.0-SNAPSHOT.war',
          type: 'war']
 
     ]
