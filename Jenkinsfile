@@ -73,8 +73,7 @@ echo "Project installed"
  
 stage ("Deploy-Staging") {		
             steps {
-                sh "cd /etc/ansible"
-                sh "sudo ansible-playbook nexus-playbook.yml"
+                build 'Deploy-War-File'
        }
    }
 }
