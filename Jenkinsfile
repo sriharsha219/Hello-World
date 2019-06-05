@@ -63,17 +63,28 @@ echo "Project installed"
     }
 }
 
- stage("Publish to Nexus") {
+ stage("Publish to nexus") {
             steps {
-curl -v \
-    -F "r=my-nexus-snapshots" \
-    -F "g=personal" \
-    -F "a=Hello-World" \
-    -F "v=1.0-SNAPSHOT" \
-    -F "p=war" \
-    -F "file=@./Hello-World-1.0-SNAPSHOT.war" \
-    -u admin:admin123 \
-    http://3.130.67.158:8081/nexus/content/repositories/my-nexus-snapshots
+                script {
+                    // Read POM xml file using 'readMavenPom' step , this step 'readMavenPom' is included in: https://plugins.jenkins.io/pipeline-utility-steps
+                    pom = readMavenPom file: "pom.xml";
+                        nexusArtifactUploader(
+                        nexusVersion: 'nexus3',
+    protocol: 'http',
+    nexusUrl: '3.130.67.158:8081/nexus/content/repositories/my-nexus-snapshots',
+    groupId: pom.groupId,
+    version: pom.version,
+    repository: 'my-nexus-snapshots',
+    credentialsId: 'Nexus',
+    artifacts: [
+        [artifactId: 'Hello-World',
+         classifier: '',
+         file: '/home/ec2-user/.m2/repository/personal/Hello-World/1.0-SNAPSHOT/Hello-World-1.0-SNAPSHOT.war',
+         type: 'war']
+
+    ]
+             )
+           }
         }
 }
 stage ("Deploy-Staging") {		
