@@ -7,6 +7,16 @@
   <version>1.0-SNAPSHOT</version>
   <name>Hello-World Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <distributionManagement>
+<repository>
+<id>release</id>
+<url>http://3.130.67.158:8081/nexus/content/repositories/releases/my-nexus-snapshots</url>
+</repository>
+<snapshotRepository>
+<id>snapshots</id>
+<url>http://3.130.67.158:8081/nexus/content/repositories/snapshots/my-nexus-releases</url>
+</snapshotRepository>
+</distributionManagement>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

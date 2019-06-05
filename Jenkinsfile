@@ -76,9 +76,9 @@ echo "Project installed"
     }
 }
 
- stage("Publish to nexus") {
+ stage("Publish to Nexus") {
              steps {
-  mvn deploy:deploy-file -DgeneratePom=false -DrepositoryId=snapshots -Durl=http://3.130.67.158:8081/nexus/content/repositories/my-nexus-snapshots -DpomFile=pom.xml -Dfile=target/Hello-World.war
+				mvn deploy
             }
         }
  
