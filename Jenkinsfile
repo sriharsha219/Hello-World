@@ -65,7 +65,15 @@ echo "Project installed"
 
  stage("Publish to Nexus") {
             steps {
-curl -v -F r=my-nexus-snapshots -F hasPom=true -F e=war -F file=@pom.xml -F file=@Hello-World-1.0-SNAPSHOT.War -u admin:admin123 http://3.130.67.158:8081/nexus/content/repositories/releases
+curl -v \
+    -F "r=my-nexus-snapshots" \
+    -F "g=personal" \
+    -F "a=Hello-World" \
+    -F "v=1.0-SNAPSHOT" \
+    -F "p=war" \
+    -F "file=@./Hello-World-1.0-SNAPSHOT.war" \
+    -u admin:admin123 \
+    http://3.130.67.158:8081/nexus/content/repositories/my-nexus-snapshots
         }
 }
 stage ("Deploy-Staging") {		
