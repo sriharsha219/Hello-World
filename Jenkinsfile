@@ -79,7 +79,7 @@ echo "Project installed"
     artifacts: [
         [artifactId: pom.artifactId,
          classifier: '',
-         file: 'Hello-World-1.0-SNAPSHOT.war',
+         file: '/home/ec2-user/.m2/repository/personal/Hello-World/1.0-SNAPSHOT/Hello-World-1.0-SNAPSHOT.war',
          type: 'war']
 
     ]
