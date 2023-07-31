@@ -15,6 +15,10 @@ on:
         default: 'World'
         # Input has to be provided for the workflow to run
         required: true
+        type: choice
+        options:
+        - India
+        - USA
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
