@@ -35,18 +35,18 @@ jobs:
     # Runs a single command using the runner's shell
     - name: Display the addition of two integers
       run: echo "2+3=5"
-    # Subtraction job
-    Subtraction:
-      name: Subtraction of two integers
-      if: github.event.inputs.job == 'Subtraction'
-      # The type of runner that the job will run on
-      runs-on: ubuntu-latest
+  # Subtraction job
+  Subtraction:
+    name: Subtraction of two integers
+    if: github.event.inputs.job == 'Subtraction'
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-      # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
-      # Runs a single command using the runner's shell
-      - name: Display the subtraction of two integers
-        run: echo "5-2=3"
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runner's shell
+    - name: Display the subtraction of two integers
+      run: echo "5-2=3"
     # Multiplication job
   multiplication:
     name: Multiplication of two integers
